@@ -100,7 +100,7 @@ Klart! Öppna sidan, scrolla till gästboken och tryck **Logga in med Google**. 
 2. I Vercel: **Project → Settings → Domains**, skriv `uzeirovic.se` och tryck **Add**. Lägg även till `www.uzeirovic.se`.
 3. Vercel visar exakt vilka DNS-poster du ska lägga in hos domänsäljaren. Kopiera dem dit. Det kan ta från några minuter upp till ett dygn innan det slår igenom.
 4. I Supabase → **Authentication → URL Configuration**: ändra **Site URL** till `https://uzeirovic.se`.
-5. I `index.html`: byt `https://uzeirovic.vercel.app/` mot `https://uzeirovic.se/` på de tre raderna med `canonical`, `og:url` och `og:image`.
+5. Länkarna i `index.html` (`canonical`, `og:url`, `og:image`) pekar redan på `https://www.uzeirovic.se/`.
 
 
 ## Moderera gästboken
