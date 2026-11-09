@@ -3,7 +3,7 @@
    Båda värdena är gjorda för att ligga öppet i webbläsaren, så det är säkert att de finns här.
    Lämnas de tomma visar gästboken "öppnar snart" och resten av sidan fungerar som vanligt. */
 window.PORTFOLIO_CONFIG = {
-  SUPABASE_URL: '',        // t.ex. 'https://abcdefgh.supabase.co'
-  SUPABASE_ANON_KEY: '',   // den långa "anon public"-nyckeln
+  SUPABASE_URL: 'https://clufgvuoppzblbsndhys.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_yhhbF8F0xOdB898Momw1aw_SqMOX05R',
   OWNER_EMAIL: 'uzeirovicemil44@gmail.com'
 };
