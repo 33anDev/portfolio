@@ -162,28 +162,28 @@ $('#inv').addEventListener('submit',e=>{e.preventDefault();
 });
 
 /* ================= ADMIN ================= */
-const adMain=$('#adMain');
+const svaMain=$('#svaMain');
 function adRender(){
   const A=SV.ad;
-  $$('#admin .ad-nav').forEach(b=>b.classList.toggle('on',b.dataset.tab===A.tab));
+  $$('#svAdmin .sva-nav').forEach(b=>b.classList.toggle('on',b.dataset.tab===A.tab));
   $('#cntP').textContent=SV.players.length;const open=SV.reports.filter(r=>!r.closed).length;$('#cntR').textContent=open;$('#cntR').classList.toggle('hot',open>0);badge();
   if(A.tab==='players'){
     const q=A.q.toLowerCase();const list=SV.players.filter(p=>!q||(p.n+' '+p.id+' '+p.cid+' '+p.u).toLowerCase().includes(q));const p=SV.players.find(x=>x.id===A.sel);
-    adMain.innerHTML=`<div class="ad-head"><h4>Spelare online</h4><input class="ad-search" id="adQ" placeholder="Sök namn, ID eller citizen-ID" value="${esc(A.q)}" aria-label="Sök spelare"></div>
-    <div class="ad-list">${list.length?list.map(x=>`<button type="button" class="row ${x.id===A.sel?'on':''}" data-pid="${x.id}"><span class="idbox">${x.id}</span><span class="txt"><b>${esc(x.n)}${x.role?` <span class="bdg2 b-${x.role}">${x.role}</span>`:''}</b><small>${esc(x.u)} · ${esc(x.job)} · ${esc(x.grade)}</small></span><span class="ms">${x.ms} ms</span></button>`).join(''):'<div class="empty">Ingen spelare matchar.</div>'}</div>
-    <div class="ad-det">${p?`<div class="det-h"><div class="idbig">${p.id}</div><div><b>${esc(p.n)}</b><small>${esc(p.u)} · ${p.cid}</small></div></div>
+    svaMain.innerHTML=`<div class="sva-head"><h4>Spelare online</h4><input class="sva-search" id="svaQ" placeholder="Sök namn, ID eller citizen-ID" value="${esc(A.q)}" aria-label="Sök spelare"></div>
+    <div class="sva-list">${list.length?list.map(x=>`<button type="button" class="row ${x.id===A.sel?'on':''}" data-pid="${x.id}"><span class="idbox">${x.id}</span><span class="txt"><b>${esc(x.n)}${x.role?` <span class="bdg2 b-${x.role}">${x.role}</span>`:''}</b><small>${esc(x.u)} · ${esc(x.job)} · ${esc(x.grade)}</small></span><span class="ms">${x.ms} ms</span></button>`).join(''):'<div class="empty">Ingen spelare matchar.</div>'}</div>
+    <div class="sva-det">${p?`<div class="det-h"><div class="idbig">${p.id}</div><div><b>${esc(p.n)}</b><small>${esc(p.u)} · ${p.cid}</small></div></div>
       <div class="stats"><div class="stat"><small>Jobb</small><b>${esc(p.job)}</b></div><div class="stat"><small>Kontanter</small><b id="stCash">${kr(p.cash)} kr</b></div><div class="stat"><small>Bank</small><b>${kr(p.bank)} kr</b></div></div>
       <span class="acts-l">HANDLINGAR</span><div class="acts">
        <button type="button" data-a="goto">Gå till</button><button type="button" data-a="bring">Hämta hit</button><button type="button" data-a="spec">Spectate</button><button type="button" data-a="freeze">Frys / tina</button>
        <button type="button" data-a="heal">Hela</button><button type="button" data-a="money">Ge 500 kr</button><button type="button" data-a="kick" class="dg">Kicka</button><button type="button" data-a="ban" class="dg">Banna</button></div>
       ${A.ban?`<div class="banbox"><b>Banna spelaren</b><input id="banR" placeholder="Anledning (visas för spelaren)" aria-label="Anledning"><div class="r"><select id="banT" aria-label="Längd"><option>1 dag</option><option>3 dagar</option><option>1 vecka</option><option>Permanent</option></select><button type="button" class="banbtn" data-a="doban">Banna</button></div></div>`:''}`
       :'<div class="empty">Välj en spelare i listan.</div>'}</div>`;
-    const qi=$('#adQ');qi.addEventListener('input',()=>{A.q=qi.value;const pos=qi.selectionStart;adRender();const n=$('#adQ');n.focus();n.setSelectionRange(pos,pos);});
+    const qi=$('#svaQ');qi.addEventListener('input',()=>{A.q=qi.value;const pos=qi.selectionStart;adRender();const n=$('#svaQ');n.focus();n.setSelectionRange(pos,pos);});
   }else{
     const list=SV.reports.filter(r=>A.rtab==='open'?!r.closed:r.closed);const r=list.find(x=>x.id===A.rsel)||null;
-    adMain.innerHTML=`<div class="ad-head"><h4>Reports</h4><div class="ad-seg"><button type="button" data-rt="open" class="${A.rtab==='open'?'on':''}">Aktiva</button><button type="button" data-rt="closed" class="${A.rtab==='closed'?'on':''}">Stängda</button></div></div>
-    <div class="ad-list">${list.length?list.map(x=>`<button type="button" class="row ${r&&x.id===r.id?'on':''} ${x.fresh?'newr':''}" data-rid="${x.id}"><span class="idbox">#${x.id}</span><span class="txt"><b>${esc(x.type)} · ${esc(x.from)}</b><small>${esc((x.chat.filter(c=>c.m).slice(-1)[0]||{m:''}).m)}</small></span><span class="bdg2 ${x.closed?'b-closed':'b-'+x.status}">${x.closed?'Stängd':x.status==='han'?'Hanteras':'Öppen'}</span></button>`).join(''):`<div class="empty">${A.rtab==='open'?'Inga aktiva reports. Skicka en från pausmenyn!':'Inga stängda reports än.'}</div>`}</div>
-    <div class="ad-det">${r?`<div class="det-h"><div class="idbig">#${r.id}</div><div><b>${esc(r.type)}</b><small>${esc(r.from)} · ID ${r.pid} · <span class="bdg2 ${r.closed?'b-closed':'b-'+r.status}">${r.closed?'Stängd':r.status==='han'?'Hanteras':'Öppen'}</span></small></div></div>
+    svaMain.innerHTML=`<div class="sva-head"><h4>Reports</h4><div class="sva-seg"><button type="button" data-rt="open" class="${A.rtab==='open'?'on':''}">Aktiva</button><button type="button" data-rt="closed" class="${A.rtab==='closed'?'on':''}">Stängda</button></div></div>
+    <div class="sva-list">${list.length?list.map(x=>`<button type="button" class="row ${r&&x.id===r.id?'on':''} ${x.fresh?'newr':''}" data-rid="${x.id}"><span class="idbox">#${x.id}</span><span class="txt"><b>${esc(x.type)} · ${esc(x.from)}</b><small>${esc((x.chat.filter(c=>c.m).slice(-1)[0]||{m:''}).m)}</small></span><span class="bdg2 ${x.closed?'b-closed':'b-'+x.status}">${x.closed?'Stängd':x.status==='han'?'Hanteras':'Öppen'}</span></button>`).join(''):`<div class="empty">${A.rtab==='open'?'Inga aktiva reports. Skicka en från pausmenyn!':'Inga stängda reports än.'}</div>`}</div>
+    <div class="sva-det">${r?`<div class="det-h"><div class="idbig">#${r.id}</div><div><b>${esc(r.type)}</b><small>${esc(r.from)} · ID ${r.pid} · <span class="bdg2 ${r.closed?'b-closed':'b-'+r.status}">${r.closed?'Stängd':r.status==='han'?'Hanteras':'Öppen'}</span></small></div></div>
       <div class="chat" id="chat">${r.chat.map(c=>c.sys?`<div class="sys">${esc(c.sys)}</div>`:`<div class="cm ${c.me?'me':''}"><small>${esc(c.w)} · ${c.t}</small>${esc(c.m)}</div>`).join('')}</div>
       ${r.closed?'':`<form class="reply" id="reply"><input id="replyIn" placeholder="Svara spelaren…" aria-label="Svar"><button class="send" type="submit">Skicka</button></form>
       <div class="acts">${r.status==='open'?'<button type="button" data-ra="take">Ta ärendet</button>':''}<button type="button" data-ra="goto">Gå till</button><button type="button" data-ra="bring">Hämta hit</button><button type="button" data-ra="close" class="dg">Stäng</button></div>`}`
@@ -196,7 +196,7 @@ function adRender(){
       setTimeout(()=>{if(r.closed)return;const ans=['Tack! 🙏','Okej, jag väntar här.','Perfekt, tack för hjälpen!','Ja precis, det var där.'];r.chat.push({w:r.from,t:now(),m:ans[Math.floor(Math.random()*ans.length)]});if(SV.tab==='admin'&&SV.ad.tab==='reports'&&SV.ad.rsel===r.id){const keep=$('#replyIn')&&$('#replyIn').value;adRender();if(keep)$('#replyIn').value=keep;}},1500);});
   }
 }
-$('#admin').addEventListener('click',e=>{
+$('#svAdmin').addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;const A=SV.ad,d=b.dataset;
   if(d.tab){A.tab=d.tab;A.ban=false;adRender();return;}
   if(d.pid){A.sel=+d.pid;A.ban=false;adRender();return;}

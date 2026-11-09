@@ -430,31 +430,31 @@
 .invempty{border:1px dashed rgba(255,255,255,.2);border-radius:14px;padding:28px;text-align:center;color:rgba(255,255,255,.7);font-size:14px}
 /* Admin */
 .admin{background:#120d15;border-radius:22px;display:grid;grid-template-columns:210px minmax(0,1fr);min-height:540px;color:#f3edf3;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);overflow:hidden;font-size:14px}
-.ad-side{border-right:1px solid #241b29;padding:20px 12px;display:flex;flex-direction:column;gap:4px}
-.ad-logo{font-weight:800;letter-spacing:.2em;font-size:12px;display:flex;align-items:center;gap:8px;padding:0 8px}
-.ad-logo i{width:7px;height:7px;border-radius:50%;background:#ff8a3d}
-.ad-logo em{font-style:normal;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
-.ad-role{display:flex;gap:6px;align-items:center;font-size:11px;color:#a597a8;padding:6px 8px 14px}
+.sva-side{border-right:1px solid #241b29;padding:20px 12px;display:flex;flex-direction:column;gap:4px}
+.sva-logo{font-weight:800;letter-spacing:.2em;font-size:12px;display:flex;align-items:center;gap:8px;padding:0 8px}
+.sva-logo i{width:7px;height:7px;border-radius:50%;background:#ff8a3d}
+.sva-logo em{font-style:normal;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sva-role{display:flex;gap:6px;align-items:center;font-size:11px;color:#a597a8;padding:6px 8px 14px}
 .bdg2{font-size:10px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:999px;text-transform:uppercase}
 .b-admin{background:rgba(255,61,139,.18);color:#ff7cb0}
 .b-staff{background:rgba(122,162,255,.18);color:#9db8ff}
 .b-han{background:rgba(122,162,255,.18);color:#9db8ff}
 .b-open{background:rgba(255,201,61,.15);color:#ffd36b}
 .b-closed{background:rgba(255,255,255,.08);color:#a597a8}
-.ad-nav{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:10px;padding:9px 10px;color:#b9adbb;font-weight:700}
-.ad-nav:hover{color:#fff;background:#1c1520}
-.ad-nav.on{background:#1f1724;border-color:#3a2a3e;color:#fff;box-shadow:inset 3px 0 0 #ff3d8b}
-.ad-nav .cnt{margin-left:auto;font-size:11px;background:#2a2030;border-radius:999px;padding:1px 7px}
-.ad-nav .cnt.hot{background:var(--g);color:#1a0d14}
-.ad-main{padding:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-content:start;position:relative}
-.ad-head{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.ad-head h4{font-size:24px;font-weight:800;letter-spacing:-.04em}
-.ad-search{flex:1;max-width:280px;min-width:140px;background:#1a141e;border:1px solid #3a2a3e;border-radius:10px;color:#fff;font:inherit;font-size:13px;padding:9px 11px;outline:none}
-.ad-search:focus{border-color:#ff3d8b;box-shadow:0 0 0 3px rgba(255,61,139,.15)}
-.ad-seg{display:flex;gap:4px}
-.ad-seg button{background:transparent;border:1px solid #3a2a3e;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;color:#b9adbb}
-.ad-seg button.on{background:var(--g);color:#1a0d14;border-color:transparent}
-.ad-list{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sva-nav{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:10px;padding:9px 10px;color:#b9adbb;font-weight:700}
+.sva-nav:hover{color:#fff;background:#1c1520}
+.sva-nav.on{background:#1f1724;border-color:#3a2a3e;color:#fff;box-shadow:inset 3px 0 0 #ff3d8b}
+.sva-nav .cnt{margin-left:auto;font-size:11px;background:#2a2030;border-radius:999px;padding:1px 7px}
+.sva-nav .cnt.hot{background:var(--g);color:#1a0d14}
+.sva-main{padding:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-content:start;position:relative}
+.sva-head{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.sva-head h4{font-size:24px;font-weight:800;letter-spacing:-.04em}
+.sva-search{flex:1;max-width:280px;min-width:140px;background:#1a141e;border:1px solid #3a2a3e;border-radius:10px;color:#fff;font:inherit;font-size:13px;padding:9px 11px;outline:none}
+.sva-search:focus{border-color:#ff3d8b;box-shadow:0 0 0 3px rgba(255,61,139,.15)}
+.sva-seg{display:flex;gap:4px}
+.sva-seg button{background:transparent;border:1px solid #3a2a3e;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;color:#b9adbb}
+.sva-seg button.on{background:var(--g);color:#1a0d14;border-color:transparent}
+.sva-list{display:flex;flex-direction:column;gap:6px;min-width:0}
 .row{display:flex;align-items:center;gap:10px;padding:9px;border-radius:12px;border:1px solid transparent;background:transparent;text-align:left;width:100%;color:#f3edf3;transition:background .15s}
 .row:hover{background:#1a141e}
 .row.on{background:#1f1724;border-color:#5a2a48}
@@ -465,7 +465,7 @@
 .row .txt b{display:flex;gap:6px;align-items:center;font-size:14px;flex-wrap:wrap}
 .row .txt small{display:block;color:#a597a8;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .row .ms{font-family:var(--mono);font-size:11px;color:#6f6273}
-.ad-det{background:#17111b;border:1px solid #241b29;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.sva-det{background:#17111b;border:1px solid #241b29;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .det-h{display:flex;gap:12px;align-items:center;padding-bottom:12px;border-bottom:1px solid #241b29}
 .det-h .idbig{width:50px;height:50px;border-radius:13px;background:var(--g);display:grid;place-items:center;font-weight:800;font-size:18px;color:#1a0d14;flex:none}
 .det-h b{font-size:21px;letter-spacing:-.03em;display:block;line-height:1.1}
@@ -509,10 +509,10 @@
   .hudwrap,.invwrap{grid-template-columns:1fr}
   .hudprev{min-height:340px}
   .admin{grid-template-columns:1fr}
-  .ad-side{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid #241b29;padding:12px;align-items:center}
-  .ad-logo{width:100%}.ad-role{display:none}
-  .ad-nav{width:auto;flex:1;justify-content:center}
-  .ad-main{grid-template-columns:1fr}
+  .sva-side{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid #241b29;padding:12px;align-items:center}
+  .sva-logo{width:100%}.sva-role{display:none}
+  .sva-nav{width:auto;flex:1;justify-content:center}
+  .sva-main{grid-template-columns:1fr}
   .acts{grid-template-columns:repeat(2,1fr)}
 }
 
