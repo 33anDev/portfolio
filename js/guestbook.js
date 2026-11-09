@@ -37,7 +37,7 @@
     if (!GB.user) {
       w.innerHTML = `<div class="gb-form"><span class="k">${T('Skriv ett omdöme', 'Write a review')}</span>
         <h3 style="font-size:24px;font-weight:600;letter-spacing:-.03em">${T('Logga in för att lämna ett omdöme', 'Sign in to leave a review')}</h3>
-        <p style="color:var(--muted);font-size:15px">${T('Du behöver bara logga in om du vill skriva. Ditt namn och din profilbild från Google visas vid omdömet.', 'You only need to sign in to write. Your Google name and profile picture are shown with your review.')}</p>
+        <p style="color:var(--muted);font-size:15px">${T('Du behöver bara logga in om du vill skriva. Ditt namn och din profilbild från Google visas vid omdömet.', 'You only need to sign in to write. Your Google name and profile picture are shown with your review.')} <a href="integritet.html" style="color:var(--accent)">${T('Läs om integritet', 'Privacy')}</a></p>
         <button class="btn btn-ghost gbtn" type="button" id="gbLogin">${GOOGLE}<span>${T('Logga in med Google', 'Sign in with Google')}</span></button>
         ${GB.err ? `<div class="gb-note" style="border-color:var(--bad)">${esc(GB.err)}</div>` : ''}</div>`;
       $('#gbLogin').addEventListener('click', login);
