@@ -487,3 +487,32 @@ input,select,textarea{font:inherit}
 .g-item.sm img{width:34px;height:34px}
 .g-item.lua img{background:#fff;border-radius:50%;padding:3px}
 @media (max-width:560px){.g-item.sm img{width:26px;height:26px}.g-item{left:-22px;top:-22px;width:44px;height:44px}.g-item img{width:36px;height:36px}.g-chip{width:38px;height:38px;font-size:11px;border-radius:11px}}
+
+/* ===== Mobilfinputs ===== */
+@media (max-width:860px){
+  .nav-links + .ctl{margin-left:auto}
+  .section{padding-block:64px 4px}
+  .proj{padding-block:20px 40px}
+  .proj + .proj{padding-top:40px}
+  .shead{margin-bottom:24px}
+  .ph h3{font-size:clamp(36px,11vw,52px)}
+  .ph p{font-size:16px}
+  .foot nav a{padding:8px 4px}
+  .foot{gap:16px}
+  /* iOS zoomar in på fält med text under 16px */
+  input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:16px!important}
+}
+@media (max-width:560px){
+  .hero{padding-block:36px 6px;gap:18px}
+  .hero .lede{font-size:16px}
+  .giant{padding-block:18px 0}
+  .scrollhint{display:none}
+  .demo{border-radius:18px}
+  .stage{padding:10px}
+  .demo-bar{padding:10px 10px 10px 12px}
+  .demo-bar small{display:none}
+  .orig button{width:96px}
+  .contact h2{font-size:clamp(40px,12vw,64px)}
+  .hey{font-size:17px;padding:14px 24px}
+  .mark .av{width:36px;height:36px}
+}
