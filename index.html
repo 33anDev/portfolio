@@ -396,6 +396,49 @@
       <button type="button" data-lb="img/admin-reports.webp" data-cap="Svea Admin: reports"><img src="img/admin-reports.webp" alt="" loading="lazy"></button>
     </div>
   </article>
+  <!-- 04 ESPLAY TODO -->
+  <article class="proj" id="p-esplay">
+    <div class="ph reveal">
+      <div class="ph-l">
+        <div class="pnum"><b>04</b><span class="tag">React</span><span class="tag" data-en="Web app">Webbapp</span></div>
+        <h3>Esplay ToDo</h3>
+        <p data-en="A to-do app built in React and Vite. The focus is on handling state correctly: every change creates a new array instead of mutating the old one, so React knows when to re-render.">En att göra-app byggd i React och Vite. Fokus ligger på att hantera state rätt: varje ändring skapar en ny array istället för att ändra den gamla, så att React vet när den ska rita om.</p>
+      </div>
+      <div class="ph-r">
+        <ul class="feat">
+          <li data-en="State with useState: a list of objects with id, text and completed">State med useState: en lista med objekt som har id, text och completed</li>
+          <li data-en="Immutable updates with spread, .map() and .filter()">Oföränderliga uppdateringar med spread, .map() och .filter()</li>
+          <li data-en="Controlled input, live counter and accessible focus states">Kontrollerat inputfält, live-räknare och tydliga fokuslägen</li>
+        </ul>
+        <div class="tags"><span>React 19</span><span>useState</span><span>Vite</span><span>JavaScript</span><span>CSS</span></div>
+        <div class="links"><a class="btn btn-ghost" href="https://github.com/33anDev/esplay-todo" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+    </div>
+    <div class="demo reveal">
+      <div class="demo-bar"><span class="lv"><i></i>Live demo</span><small data-en="Watch the state change as you click">Se hur statet ändras när du klickar</small><button class="reset" type="button" data-reset="es" style="margin-left:auto">↺ <span data-en="Reset">Börja om</span></button></div>
+      <div class="stage es-stage">
+        <div class="es-wrap">
+          <div class="es-app" id="esApp">
+            <header class="es-head"><h4>Esplay ToDo</h4><p class="es-count" id="esCounter"></p></header>
+            <form class="es-form" id="esForm" autocomplete="off">
+              <input type="text" id="esInput" placeholder="Vad behöver göras?" data-en-ph="What needs to be done?" aria-label="Ny uppgift" data-en-al="New task" maxlength="80">
+              <button type="submit" data-en="Add">Lägg till</button>
+            </form>
+            <p class="es-empty" id="esEmpty" hidden data-en="The list is empty.">Listan är tom.</p>
+            <ul class="es-list" id="esList"></ul>
+          </div>
+          <div class="es-dev" aria-label="React state">
+            <div class="es-dev-top"><span><i class="es-react"></i>React state</span><b id="esRef" class="es-ref"></b></div>
+            <pre class="es-state" id="esState"></pre>
+            <div class="es-dev-sub" data-en="Latest updates">Senaste uppdateringar</div>
+            <ol class="es-log" id="esLog"></ol>
+          </div>
+        </div>
+        <div class="toast" id="toast-es"></div>
+      </div>
+    </div>
+  </article>
+
   <div class="reveal" style="display:flex;justify-content:center"><a class="btn btn-ghost" href="https://github.com/33anDev" target="_blank" rel="noopener" data-en="See more on GitHub ↗">Se mer på GitHub ↗</a></div>
 </section>
 
@@ -414,7 +457,7 @@
     </div>
   </div>
   <div class="skills">
-    <div class="tile skill spot reveal"><span class="ic">&lt;/&gt;</span><h3>Frontend</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li data-en="Responsive design">Responsiv design</li><li data-en="Animations">Animationer</li></ul><p data-en="Interfaces that look good and are easy to use.">Gränssnitt som ser bra ut och är lätta att använda.</p></div>
+    <div class="tile skill spot reveal"><span class="ic">&lt;/&gt;</span><h3>Frontend</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li data-en="Responsive design">Responsiv design</li><li data-en="Animations">Animationer</li></ul><p data-en="Interfaces that look good and are easy to use.">Gränssnitt som ser bra ut och är lätta att använda.</p></div>
     <div class="tile skill spot reveal"><span class="ic">{ }</span><h3 data-en="Languages">Språk</h3><ul><li>Rust</li><li>Java</li><li>Lua</li><li>egui</li></ul><p data-en="Logic for desktop apps, servers and services.">Logik för desktop-appar, servrar och tjänster.</p></div>
     <div class="tile skill spot reveal"><span class="ic">▶</span><h3>FiveM</h3><ul><li>QBCore</li><li>ESX</li><li>NUI</li><li>Scripts</li></ul><p data-en="Complete resources from idea to live server.">Kompletta resurser från idé till live-server.</p></div>
     <div class="tile skill spot reveal"><span class="ic">⌘</span><h3 data-en="Tools">Verktyg</h3><ul><li>Git</li><li>GitHub</li><li>Cargo</li><li data-en="AI implementation">AI-implementering</li></ul><p data-en="Version control, Cargo and AI that I want to implement at work.">Versionshantering, Cargo och AI som jag vill implementera i arbetet.</p></div>
@@ -485,6 +528,7 @@
 <script src="js/procyon.js"></script>
 <script src="js/nordvik.js"></script>
 <script src="js/svea.js"></script>
+<script src="js/esplay.js"></script>
 <script src="js/globe.js"></script>
 <script src="js/guestbook.js"></script>
 </body>

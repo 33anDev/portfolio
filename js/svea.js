@@ -224,5 +224,5 @@ EU.resetSv=()=>{SV.modal=null;SV.play=false;invReset();init();};
 init();
 })();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-reset]');if(!b)return;const r=b.dataset.reset;
-  if(r==='pc'&&EU.resetPc)EU.resetPc();if(r==='nv'&&EU.resetNv)EU.resetNv();if(r==='sv'&&EU.resetSv)EU.resetSv();
-  EU.toast(r==='pc'?'pc':r==='nv'?'nv':'sv',EU.T('Återställt ↺','Reset ↺'));});
+  if(r==='pc'&&EU.resetPc)EU.resetPc();if(r==='nv'&&EU.resetNv)EU.resetNv();if(r==='sv'&&EU.resetSv)EU.resetSv();if(r==='es'&&EU.resetEs)EU.resetEs();
+  EU.toast(r,EU.T('Återställt ↺','Reset ↺'));});

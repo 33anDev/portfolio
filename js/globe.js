@@ -20,6 +20,7 @@
     { n: 'Java', c: LANG, img: 'java' },
     { n: 'Lua', c: LANG, img: 'lua', cls: 'lua' },
     { n: 'JavaScript', c: WEB, img: 'javascript' },
+    { n: 'React', c: WEB, img: 'react' },
     { n: 'HTML', c: WEB, img: 'html5' },
     { n: 'CSS', c: WEB, img: 'css3' },
     { n: 'Git', c: TOOL, img: 'git' },
