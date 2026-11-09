@@ -7,7 +7,10 @@
   const { $, $$, esc, T } = EU;
   const CFG = window.PORTFOLIO_CONFIG || {};
   const READY = !!(CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && window.supabase);
-  const sb = READY ? window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY) : null;
+  const sb = READY ? window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY, {
+    auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true, autoRefreshToken: true }
+  }) : null;
+  const store = { get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }, del(k) { try { sessionStorage.removeItem(k); } catch (e) {} } };
   const OWNER = (CFG.OWNER_EMAIL || '').toLowerCase();
 
   const GB = { user: null, entries: [], loaded: false, error: false, saving: false, err: '', delArm: null };
@@ -86,7 +89,8 @@
 
   async function login() {
     GB.err = '';
-    const redirectTo = location.origin + location.pathname + '#gastbok';
+    const redirectTo = location.origin + location.pathname;
+    store.set('gb-return', '1');
     const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
     if (error) { GB.err = T('Inloggningen fungerade inte. Försök igen.', 'Sign-in failed. Please try again.'); renderForm(); }
   }
@@ -116,10 +120,23 @@
   EU.onLang(render);
   render();
   if (!READY) return;
-  sb.auth.getSession().then(({ data }) => { GB.user = data.session ? data.session.user : null; renderForm(); renderList(); });
+  /* Fel från Google/Supabase i adressen (t.ex. om man avbröt) */
+  const qs = new URLSearchParams(location.search + '&' + location.hash.replace(/^#/, ''));
+  if (qs.get('error_description')) {
+    GB.err = T('Inloggningen avbröts eller misslyckades: ', 'Sign-in was cancelled or failed: ') + qs.get('error_description');
+    history.replaceState(null, '', location.pathname);
+    document.getElementById('gastbok').scrollIntoView();
+  }
+  const afterLogin = session => {
+    if (/[?&]code=/.test(location.search) || location.hash.includes('access_token')) history.replaceState(null, '', location.pathname);
+    if (session && store.get('gb-return')) { store.del('gb-return'); setTimeout(() => document.getElementById('gastbok').scrollIntoView({ behavior: 'smooth' }), 300); }
+  };
   sb.auth.onAuthStateChange((_ev, session) => {
-    GB.user = session ? session.user : null; renderForm(); renderList();
-    if (session && location.hash.includes('access_token')) history.replaceState(null, '', location.pathname + '#gastbok');
+    GB.user = session ? session.user : null; renderForm(); renderList(); afterLogin(session);
+  });
+  sb.auth.getSession().then(({ data, error }) => {
+    if (error) { GB.err = T('Inloggningen fungerade inte: ', 'Sign-in failed: ') + error.message; }
+    GB.user = data && data.session ? data.session.user : null; renderForm(); renderList(); afterLogin(data && data.session);
   });
   load();
 })();
