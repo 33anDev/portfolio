@@ -85,6 +85,11 @@
     GB.loaded = true; GB.error = !!error;
     if (!error) GB.entries = data || [];
     renderSum(); renderList();
+    /* Rita om formuläret när omdömena laddats, så att ens eget omdöme fylls i.
+       Gör det inte om besökaren håller på att skriva. */
+    const ta = document.getElementById('gbText');
+    const typing = ta && (document.activeElement === ta || document.activeElement === document.getElementById('gbRole')) && ta.value.trim();
+    if (GB.user && !GB.saving && !typing) renderForm();
   }
 
   async function login() {
