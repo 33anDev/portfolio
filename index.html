@@ -401,9 +401,17 @@
 
 <!-- SKILLS -->
 <section class="section" id="skills">
-  <div class="shead reveal">
+  <div class="shead reveal" style="margin-inline:auto;text-align:center;align-items:center">
     <span class="eyebrow">Tech stack</span>
-    <h2 data-en="My skills">Mina skills</h2>
+    <h2 data-en="My <span class=&quot;serif&quot;>skills</span>">Mina <span class="serif">skills</span></h2>
+    <p data-en="Drag the globe to spin it. Click an icon to bring it to the front.">Dra i klotet för att snurra det. Klicka på en ikon för att ta fram den.</p>
+  </div>
+  <div class="globe-wrap reveal">
+    <div class="globe" id="globe">
+      <canvas id="globeCanvas" aria-hidden="true"></canvas>
+      <div class="globe-items" id="globeItems"></div>
+      <div class="globe-label" aria-live="polite"><b id="globeName">Rust</b><small id="globeCat">Språk</small></div>
+    </div>
   </div>
   <div class="skills">
     <div class="tile skill spot reveal"><span class="ic">&lt;/&gt;</span><h3>Frontend</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li data-en="Responsive design">Responsiv design</li><li data-en="Animations">Animationer</li></ul><p data-en="Interfaces that look good and are easy to use.">Gränssnitt som ser bra ut och är lätta att använda.</p></div>
@@ -477,6 +485,7 @@
 <script src="js/procyon.js"></script>
 <script src="js/nordvik.js"></script>
 <script src="js/svea.js"></script>
+<script src="js/globe.js"></script>
 <script src="js/guestbook.js"></script>
 </body>
 </html>
